@@ -5,7 +5,8 @@ date:   2018-12-31 21:00:00 +0900
 categories: reading
 ---
 
-:toc
+* content
+{:toc}
 
 # [KDD2018] I Know You’ll Be Back: Interpretable New User Clustering and Churn Prediction on a Mobile Social App
 
