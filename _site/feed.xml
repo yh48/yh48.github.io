@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-28T14:11:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">yan48</title><subtitle>YAN48</subtitle><entry><title type="html">JekyllでGithubPagesを作成手順</title><link href="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html" rel="alternate" type="text/html" title="JekyllでGithubPagesを作成手順" /><published>2018-12-24T21:06:26+09:00</published><updated>2018-12-24T21:06:26+09:00</updated><id>http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html">&lt;p&gt;:toc&lt;/p&gt;
+
+&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;より自由に、記事を書くため、github.ioを使うつもりです。&lt;/p&gt;
+
+&lt;p&gt;よろしくお願い致します。&lt;/p&gt;
+
+&lt;p&gt;この機会に、github pagesの作成方法と手順をまとめます。&lt;/p&gt;
+
+&lt;h2 id=&quot;github-pages-とは&quot;&gt;github pages とは？&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;GithubPages&lt;/a&gt;、GitHubが提供している静的サイトのホスティングサービス。
+Githubリポジトリから、ウェブサイトを作成出来ます。&lt;/p&gt;
+
+&lt;h1 id=&quot;手順&quot;&gt;手順&lt;/h1&gt;
+
+&lt;h2 id=&quot;jekyll-をインストールとサイト作成&quot;&gt;jekyll をインストールとサイト作成&lt;/h2&gt;
+
+&lt;p&gt;基本的に、全部の手順は&lt;a href=&quot;https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/&quot;&gt;ここ&lt;/a&gt;に載せています。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ruby環境確認&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;略、しかし、rbenvから、最新バーションをインストールはおすすめです。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/github/pages-gem&quot;&gt;github-pages&lt;/a&gt;をインストール&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem github-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;サイトを作成、確認&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new site_name
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;site_name
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ブラウザから確認できます。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;githubにPush&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;略、基本的に、Githubの新規Repoの提示を従います。&lt;/p&gt;
+
+&lt;h1 id=&quot;テーマを変更&quot;&gt;テーマを変更&lt;/h1&gt;</content><author><name></name></author><summary type="html">:toc</summary></entry></feed>
