@@ -105,9 +105,3 @@ a(i) is the average distance of i to the other instances within same cluster A (
 D(i, X) is the average distance of i to the instances in cluster X (X not equals to A).
 
 $$b(i)=minimum(D(i, X)), for\ X\in\ C,\ X\neq A$$
-
-# Inferrering causal impact using bayesian structural time-series models
-
-This paper is published by Google. Introduced a method of causal inferance method, and a toolbox (but in R).
-
-It is a good improvement of some old methods like DID.

@@ -5,7 +5,8 @@ date:   2018-12-28 21:00:00 +0900
 categories: reading
 ---
 
-:toc
+* content
+{:toc}
 
 # 要約
 
@@ -17,4 +18,4 @@ categories: reading
   - $l1, l2, l_{\infty}$
 
 
-# 
+#

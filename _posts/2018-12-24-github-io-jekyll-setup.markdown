@@ -49,5 +49,3 @@ jekyll serve
 4. githubにPush
 
 略、基本的に、Githubの新規Repoの提示を従います。
-
-# テーマを変更
