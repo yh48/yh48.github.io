@@ -1,4 +1,521 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-28T14:11:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">yan48</title><subtitle>YAN48</subtitle><entry><title type="html">JekyllでGithubPagesを作成手順</title><link href="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html" rel="alternate" type="text/html" title="JekyllでGithubPagesを作成手順" /><published>2018-12-24T21:06:26+09:00</published><updated>2018-12-24T21:06:26+09:00</updated><id>http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html">&lt;p&gt;:toc&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-03T09:24:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">yan48</title><subtitle>明治神宮前で働いてデータサイエンティスト</subtitle><entry><title type="html">Deep Learning Basics</title><link href="http://localhost:4000/deeplearning/2019/01/01/deeplearning-basics.html" rel="alternate" type="text/html" title="Deep Learning Basics" /><published>2019-01-01T21:00:00+09:00</published><updated>2019-01-01T21:00:00+09:00</updated><id>http://localhost:4000/deeplearning/2019/01/01/deeplearning-basics</id><content type="html" xml:base="http://localhost:4000/deeplearning/2019/01/01/deeplearning-basics.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#要約&quot; id=&quot;markdown-toc-要約&quot;&gt;要約&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#深層学習の目的と原理&quot; id=&quot;markdown-toc-深層学習の目的と原理&quot;&gt;深層学習の目的と原理&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#予測のプロセス&quot; id=&quot;markdown-toc-予測のプロセス&quot;&gt;予測のプロセス&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#学習のプロセス&quot; id=&quot;markdown-toc-学習のプロセス&quot;&gt;学習のプロセス&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#実装の時の概念&quot; id=&quot;markdown-toc-実装の時の概念&quot;&gt;実装の時の概念&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#サンプル&quot; id=&quot;markdown-toc-サンプル&quot;&gt;サンプル&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#iris&quot; id=&quot;markdown-toc-iris&quot;&gt;Iris&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#handwritten-digits&quot; id=&quot;markdown-toc-handwritten-digits&quot;&gt;Handwritten digits&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#学習の過程&quot; id=&quot;markdown-toc-学習の過程&quot;&gt;学習の過程&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#名詞&quot; id=&quot;markdown-toc-名詞&quot;&gt;名詞&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;要約&quot;&gt;要約&lt;/h1&gt;
+
+&lt;p&gt;自分の理解ために、深層学習の基礎概念をまとめます。&lt;/p&gt;
+
+&lt;p&gt;深層学習の概念が多いすぎで、覚えしにくい、自分の認識からまとめます。&lt;/p&gt;
+
+&lt;h1 id=&quot;深層学習の目的と原理&quot;&gt;深層学習の目的と原理&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;深層学習&lt;/strong&gt;　は、多層のニューラルネットワークを用いて機械学習です。&lt;/p&gt;
+
+&lt;p&gt;基本的に、学習のプロセスは以下です：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;機械学習&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;X, y&lt;/p&gt;
+
+&lt;p&gt;パラメタを調整&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;学習段階&lt;/li&gt;
+  &lt;li&gt;予測段階&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;###　ニューラルネットワークの予測と学習&lt;/p&gt;
+
+&lt;h4 id=&quot;予測のプロセス&quot;&gt;予測のプロセス&lt;/h4&gt;
+
+&lt;h4 id=&quot;学習のプロセス&quot;&gt;学習のプロセス&lt;/h4&gt;
+
+&lt;p&gt;最適なパラメータを見つけるのプロセスです。&lt;/p&gt;
+
+&lt;p&gt;学習段階のポイントは以下です：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;学習の目標：&lt;strong&gt;損失関数&lt;/strong&gt; 最小化&lt;/li&gt;
+  &lt;li&gt;学習手法：&lt;strong&gt;誤差の逆伝播（Backpropagation）&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;手法理論：&lt;strong&gt;合成関数の微分の法則（チェインルール）&lt;/strong&gt; と　&lt;strong&gt;勾配降下法&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Neurons&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;損失関数（LossFunction）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;他クラス分類を行う時に、&lt;strong&gt;交差エントロピー誤差&lt;/strong&gt;　を用いる場合が多くあります。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;下記は斎藤さんにより：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step-1 ミニバッチ
+    &lt;ul&gt;
+      &lt;li&gt;訓練データの中からランダムに複数のデータを選ぶ出す&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Step-2 勾配の算出
+    &lt;ul&gt;
+      &lt;li&gt;誤差逆伝播法により、各重みパラメータに関する損失関数の勾配を求める&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Step-3　パラメータの更新
+    &lt;ul&gt;
+      &lt;li&gt;勾配を使って重みパラメータを更新する&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Step-4　繰り返す
+    &lt;ul&gt;
+      &lt;li&gt;Step-1, Step-2, Step-3 を必要な回数だけ繰り返す&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;実装の時の概念&quot;&gt;実装の時の概念&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;バッチ学習&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ミニバッチ学習&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;勾配降下法Gradient Descent&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;確率的勾配降下法Stochastic Gradient Descent&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;多層ニューラルネットワークの構造&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;入力層&lt;/li&gt;
+  &lt;li&gt;隠れ層&lt;/li&gt;
+  &lt;li&gt;出力層&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(Sometimes it is called multilayer perceptrons or MLPs, due to historical　reason, though the neurons are sigmoid neurons)&lt;/p&gt;
+
+&lt;h2 id=&quot;サンプル&quot;&gt;サンプル&lt;/h2&gt;
+
+&lt;h3 id=&quot;iris&quot;&gt;Iris&lt;/h3&gt;
+
+&lt;h3 id=&quot;handwritten-digits&quot;&gt;Handwritten digits&lt;/h3&gt;
+
+&lt;h1 id=&quot;学習の過程&quot;&gt;学習の過程&lt;/h1&gt;
+
+&lt;h1 id=&quot;名詞&quot;&gt;名詞&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;パーセプトロン Perceptron&lt;/strong&gt;:
+takes several binary inputs, x1,x2,…, and produces a single binary output:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%97%E3%83%88%E3%83%AD%E3%83%B3&quot;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;シグモイド関数 sigmoid function&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%A2%E3%82%A4%E3%83%89%E9%96%A2%E6%95%B0&quot;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Neural Networks and Deep Learning&lt;/strong&gt; &lt;a href=&quot;https://www.coursera.org/learn/neural-networks-deep-learning&quot;&gt;Coursera&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;neuralnetworksanddeeplearning&lt;/strong&gt; &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;Webpage&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">December Short Readings</title><link href="http://localhost:4000/reading/2018/12/31/short-readings-dec.html" rel="alternate" type="text/html" title="December Short Readings" /><published>2018-12-31T21:06:26+09:00</published><updated>2018-12-31T21:06:26+09:00</updated><id>http://localhost:4000/reading/2018/12/31/short-readings-dec</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/31/short-readings-dec.html">&lt;h1 id=&quot;reading-lists&quot;&gt;Reading Lists&lt;/h1&gt;
+
+&lt;h2 id=&quot;the-future-of-software-isnt-an-app-its-a-habit&quot;&gt;The future of software isn’t an app. It’s a habit&lt;/h2&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://qz.com/1490440/the-future-of-software-isnt-an-app-its-a-habit/&quot;&gt;The future of software isn’t an app. It’s a habit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;人間の習慣を作りのアプリが勝ち。&lt;/p&gt;
+
+&lt;p&gt;Says Nir Eyal, author of Hooked: How to Build Habit-Forming Products:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Software that makes itself a habit for the user is the only way to stay relevant. The companies that establish habits are the ones that will win.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Eyal explain the &lt;strong&gt;Logic of Amazon Echo&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The reason they’re willing to put an Echo in your home at a loss is because they know that if they can change that habit of writing down your shopping list they can own that habit. That’s their competition, the shopping list.” he said.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;netflix-a-global-approach-to-recommendations&quot;&gt;[Netflix] A Global Approach to Recommendations&lt;/h2&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://media.netflix.com/en/company-blog/a-global-approach-to-recommendations&quot;&gt;A Global Approach to Recommendations&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mentioned a paper:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dl.acm.org/citation.cfm?id=2843948&quot;&gt;The Netflix Recommender System: Algorithms, Business Value, and Innovation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;netflix-now-divides-its-more-than-93-million-global-members-into-1300-taste-communities&quot;&gt;Netflix now divides its more than 93 million global members into 1,300 “taste communities”.&lt;/h2&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://qz.com/939195/netflix-nflx-divides-its-93-million-users-around-the-world-not-by-geography-but-into-1300-taste-communities/&quot;&gt;Netflix divides its 93 million users around the world into 1,300 “taste communities”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Netflix now divides its more than 93 million global members into 1,300 “taste communities”.&lt;/p&gt;</content><author><name></name></author><summary type="html">Reading Lists</summary></entry><entry><title type="html">平成最後の目標設定</title><link href="http://localhost:4000/reading/2018/12/31/heisei31-planning.html" rel="alternate" type="text/html" title="平成最後の目標設定" /><published>2018-12-31T21:00:00+09:00</published><updated>2018-12-31T21:00:00+09:00</updated><id>http://localhost:4000/reading/2018/12/31/heisei31-planning</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/31/heisei31-planning.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#要約&quot; id=&quot;markdown-toc-要約&quot;&gt;要約&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#方向性&quot; id=&quot;markdown-toc-方向性&quot;&gt;方向性&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#分解&quot; id=&quot;markdown-toc-分解&quot;&gt;分解&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#効率的に仕事を進める&quot; id=&quot;markdown-toc-効率的に仕事を進める&quot;&gt;効率的に仕事を進める&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#未来への技術を勉強&quot; id=&quot;markdown-toc-未来への技術を勉強&quot;&gt;未来への技術を勉強&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#問題解決能力&quot; id=&quot;markdown-toc-問題解決能力&quot;&gt;問題解決能力&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#データサイエンス&quot; id=&quot;markdown-toc-データサイエンス&quot;&gt;データサイエンス&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#it-トレンド&quot; id=&quot;markdown-toc-it-トレンド&quot;&gt;IT トレンド&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#目標設定&quot; id=&quot;markdown-toc-目標設定&quot;&gt;目標設定&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#読書とノート---24&quot; id=&quot;markdown-toc-読書とノート---24&quot;&gt;読書とノート - 24&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#readings&quot; id=&quot;markdown-toc-readings&quot;&gt;Readings&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#machine-learning&quot; id=&quot;markdown-toc-machine-learning&quot;&gt;Machine Learning&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#読書とノート&quot; id=&quot;markdown-toc-読書とノート&quot;&gt;読書とノート&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#source-code&quot; id=&quot;markdown-toc-source-code&quot;&gt;Source Code&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;要約&quot;&gt;要約&lt;/h1&gt;
+
+&lt;p&gt;平成最後の目標設定です。2019年の年間目標です。&lt;/p&gt;
+
+&lt;h1 id=&quot;方向性&quot;&gt;方向性&lt;/h1&gt;
+
+&lt;p&gt;目標の設定は、以下の方法に従います：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;より価値を持って自分になりたい。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;なぜなら、私は、恐らく、長期的に以下の活動を集中しています：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;人間（会社）により多く価値を創造する&lt;/li&gt;
+  &lt;li&gt;それ相応に、お金をもらいます&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;より価値を持って自分をなったら、社会や自分のためです。
+
+自分の価値を最大化するために、勉強しかない。
+以下は勉強の方向性と方法を確定します。&lt;/p&gt;
+
+&lt;h1 id=&quot;分解&quot;&gt;分解&lt;/h1&gt;
+
+&lt;p&gt;私の仮説なんだけど、価値の生み出すのは：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;会社・人間の問題を解決する&lt;/li&gt;
+  &lt;li&gt;会社・人間が価値を直接あげる&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;短期的に、効率的に仕事を進めるなら、会社と自分の価値を発揮できます。&lt;/p&gt;
+
+&lt;p&gt;長期的に、価値を貢献し続けるために、未来への技術を勉強しなければならない。&lt;/p&gt;
+
+&lt;h2 id=&quot;効率的に仕事を進める&quot;&gt;効率的に仕事を進める&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;問題解決能力&lt;/li&gt;
+  &lt;li&gt;分析方法にに詳しい&lt;/li&gt;
+  &lt;li&gt;分析仕組み・ライブラリーを作ります&lt;/li&gt;
+  &lt;li&gt;人工知能活用能力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;未来への技術を勉強&quot;&gt;未来への技術を勉強&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;人工知能、データマイニングなど勉強します&lt;/li&gt;
+  &lt;li&gt;IT各領域のトレンド知識を勉強します&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今から見ると、人工知能とデータマイニングは、恐らく未来20年唯一の無限可能性がある領域です。&lt;/p&gt;
+
+&lt;p&gt;IT領域の勉強は、やはり、エンジニアと打ち合わせなど使える技能です。&lt;/p&gt;
+
+&lt;h2 id=&quot;問題解決能力&quot;&gt;問題解決能力&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;考える技術&lt;/li&gt;
+  &lt;li&gt;分析技術&lt;/li&gt;
+  &lt;li&gt;書く技術&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;データサイエンス&quot;&gt;データサイエンス&lt;/h2&gt;
+
+&lt;h2 id=&quot;it-トレンド&quot;&gt;IT トレンド&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Microservice&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;React &amp;amp; React Native&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;目標設定&quot;&gt;目標設定&lt;/h1&gt;
+
+&lt;p&gt;下記の目標の達成をチャンレンジしたい：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;読書とノート---24&quot;&gt;読書とノート - 24&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;readings&quot;&gt;Readings&lt;/h1&gt;
+
+&lt;h2 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;/h2&gt;
+
+&lt;h3 id=&quot;読書とノート&quot;&gt;読書とノート&lt;/h3&gt;
+
+&lt;p&gt;一部の本をすでに読みましたけど、もう一度読む価値があります。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;考える技術・書く技術―問題解決力を伸ばすピラミッド原則&lt;/strong&gt; Barbara Minto &lt;a href=&quot;https://books.rakuten.co.jp/rb/1044067/&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント・コミュニケーションの全体観 上下&lt;/strong&gt; 中川邦夫
+&lt;a href=&quot;https://www.amazon.co.jp/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A8%E4%BD%93%E8%A6%B3-%E4%B8%8A%E5%B7%BB-%E5%8E%9F%E5%89%87%E3%81%A8%E6%89%8B%E9%A0%86-%E4%B8%AD%E5%B7%9D%E9%82%A6%E5%A4%AB/dp/4904256050/ref=pd_bxgy_14_3/355-2321502-2550256?_encoding=UTF8&amp;amp;pd_rd_i=4904256050&amp;amp;pd_rd_r=34087149-0dde-11e9-a192-8ff15e5e6261&amp;amp;pd_rd_w=RK2oQ&amp;amp;pd_rd_wg=3l1AW&amp;amp;pf_rd_p=a4de75e6-d8f7-4a34-bd69-503ea4866e6c&amp;amp;pf_rd_r=GK4ZM7PVVSMFTCH87T7Z&amp;amp;psc=1&amp;amp;refRID=GK4ZM7PVVSMFTCH87T7Z&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Learn Better ー 頭の使い方が変わり、学びが深まる6つのステップ&lt;/strong&gt; アーリック・ボーザー &lt;a href=&quot;https://books.rakuten.co.jp/rk/662d60e3c2613c5f8e653abbca890893/&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ゼロから作るDeep Learning Pythonで学ぶディープラーニングの理論と実装&lt;/strong&gt; 斎藤康毅 &lt;a href=&quot;https://books.rakuten.co.jp/rb/14424645/&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ゼロから作るDeep Learning 2 自然言語処理編&lt;/strong&gt; 斎藤康毅 &lt;a href=&quot;https://books.rakuten.co.jp/rb/15381732/&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;マイクロサービスアーキテクチャ&lt;/strong&gt; &lt;a href=&quot;https://books.rakuten.co.jp/rb/13770161/?scid=we_lnk_ad_all_non_pla_201803&amp;amp;istCompanyId=304a234b-c871-4407-99f0-29afe4f462b7&amp;amp;istItemId=-mwxattmqp&amp;amp;istBid=t&amp;amp;rmatt=tsid:%7Ccid:1554851268%7Cagid:61907644747%7Ctid:pla-517627851359%7Ccrid:294379747359%7Cnw:g%7Crnd:3196279637305499273%7Cdvc:c%7Cadp:1o1%7Cmt:%7Cloc:1009301&amp;amp;gclid=Cj0KCQiA05zhBRCMARIsACKDWje61RwBkuS2ZwcI2-iMMj0PrkxBtF2imsjn5J57puuF-_pWz3XOBKoaAtY8EALw_wcB&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;React and React Native - Second Edition&lt;/strong&gt; &lt;a href=&quot;https://learning.oreilly.com/library/view/react-and-react/9781789346794/&quot;&gt;book&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code&quot;&gt;Source Code&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flask &lt;a href=&quot;https://github.com/pallets/flask&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;scikit-learn &lt;a href=&quot;https://github.com/scikit-learn/scikit-learn&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;keras &lt;a href=&quot;https://github.com/keras-team/keras&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;scipy&lt;a href=&quot;https://github.com/scrapy/scrapy&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">December Paper Readings</title><link href="http://localhost:4000/reading/2018/12/31/paper-reading-18dec.html" rel="alternate" type="text/html" title="December Paper Readings" /><published>2018-12-31T21:00:00+09:00</published><updated>2018-12-31T21:00:00+09:00</updated><id>http://localhost:4000/reading/2018/12/31/paper-reading-18dec</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/31/paper-reading-18dec.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#kdd2018-i-know-youll-be-back-interpretable-new-user-clustering-and-churn-prediction-on-a-mobile-social-app&quot; id=&quot;markdown-toc-kdd2018-i-know-youll-be-back-interpretable-new-user-clustering-and-churn-prediction-on-a-mobile-social-app&quot;&gt;[KDD2018] I Know You’ll Be Back: Interpretable New User Clustering and Churn Prediction on a Mobile Social App&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#user-clustering-part&quot; id=&quot;markdown-toc-user-clustering-part&quot;&gt;User Clustering part&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#churn-prediction-part&quot; id=&quot;markdown-toc-churn-prediction-part&quot;&gt;Churn prediction part&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#solutions&quot; id=&quot;markdown-toc-solutions&quot;&gt;Solutions&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#sequence-to-sequence-learning-with-lstm&quot; id=&quot;markdown-toc-sequence-to-sequence-learning-with-lstm&quot;&gt;Sequence-to-Sequence learning with LSTM&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#lstm-with-activity-embedding&quot; id=&quot;markdown-toc-lstm-with-activity-embedding&quot;&gt;LSTM with activity embedding&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#parallel-lstms-with-joint-training&quot; id=&quot;markdown-toc-parallel-lstms-with-joint-training&quot;&gt;Parallel LSTMs with joint training&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#some-references-to-read&quot; id=&quot;markdown-toc-some-references-to-read&quot;&gt;Some References to read&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#silhouettes-a-graphical-aid-to-the-interpretation-and-validation-of-cluster-analysis&quot; id=&quot;markdown-toc-silhouettes-a-graphical-aid-to-the-interpretation-and-validation-of-cluster-analysis&quot;&gt;Silhouettes: A graphical aid to the interpretation and validation of cluster analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;kdd2018-i-know-youll-be-back-interpretable-new-user-clustering-and-churn-prediction-on-a-mobile-social-app&quot;&gt;[KDD2018] I Know You’ll Be Back: Interpretable New User Clustering and Churn Prediction on a Mobile Social App&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;: &lt;a href=&quot;https://www.kdd.org/kdd2018/accepted-papers/view/i-know-youll-be-back-interpretable-new-user-clustering-and-churn-prediction&quot;&gt;I Know You’ll Be Back: Interpretable New User Clustering and Churn Prediction on a Mobile Social App&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Analysis SnapChat data, including data, and ego-network data, proposed method of clustering and interpreting user groups use KMeans, and predict chances of user churn use LSTM.&lt;/p&gt;
+
+&lt;p&gt;Actually it can divide into two parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User clustering part&lt;/li&gt;
+  &lt;li&gt;Churn prediction part&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;user-clustering-part&quot;&gt;User Clustering part&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Zero-shot discovery of typical user types&lt;/li&gt;
+  &lt;li&gt;Handling correlated multi-dimensional behavior data&lt;/li&gt;
+  &lt;li&gt;Address noises and outliers&lt;/li&gt;
+  &lt;li&gt;Interpretable clustering result&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;No complicated algorithms came out, but it is very interesting that the auther did the following process to make result robust and interpretable:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clustering on each of single feature&lt;/li&gt;
+  &lt;li&gt;Combine them together&lt;/li&gt;
+  &lt;li&gt;Multi-feature clustering&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;churn-prediction-part&quot;&gt;Churn prediction part&lt;/h2&gt;
+
+&lt;p&gt;Churn prediction problem are addressing in the second part. The main challenges are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Modeling sequential behavior data&lt;/li&gt;
+  &lt;li&gt;Handling skewed, sparse, correlated activities&lt;/li&gt;
+  &lt;li&gt;Leveraging underlying user types&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;solutions&quot;&gt;Solutions&lt;/h3&gt;
+
+&lt;p&gt;([TODO]: The following part, haven’t figure out completely, need to read later)&lt;/p&gt;
+
+&lt;h4 id=&quot;sequence-to-sequence-learning-with-lstm&quot;&gt;Sequence-to-Sequence learning with LSTM&lt;/h4&gt;
+
+&lt;p&gt;Intrinsic Problem: Convert sequences of arbitrary lengths with temporal dependences into a fixed length vector for further usage.&lt;/p&gt;
+
+&lt;h4 id=&quot;lstm-with-activity-embedding&quot;&gt;LSTM with activity embedding&lt;/h4&gt;
+
+&lt;p&gt;Dealing with sparse skewed and correlated activity data, -&amp;gt; add an activity embedding layer in front of the standard LSTM layer.&lt;/p&gt;
+
+&lt;p&gt;Connect a fully connected feedforward neural network to the original daily activity vector, which converts users’ sparse activity features of each day into distributional activity embeddings.&lt;/p&gt;
+
+&lt;h4 id=&quot;parallel-lstms-with-joint-training&quot;&gt;Parallel LSTMs with joint training&lt;/h4&gt;
+
+&lt;p&gt;Author is trying to leveraging the existing user’s knowledge and apply to new user, to improve the new user’s churn predicting precious.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;He calculate the user’s churn label, and user type of existing users.&lt;/li&gt;
+  &lt;li&gt;And then calculate the initial behaviors with training set to guess new user’s user types.&lt;/li&gt;
+  &lt;li&gt;And leverage the correlation between user types and churn for better churn prediction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;some-references-to-read&quot;&gt;Some References to read&lt;/h2&gt;
+
+&lt;p&gt;Twitter-Based User Modeling for News Recommendations&lt;/p&gt;
+
+&lt;p&gt;Personalized news recommendation based on click behavior&lt;/p&gt;
+
+&lt;h1 id=&quot;silhouettes-a-graphical-aid-to-the-interpretation-and-validation-of-cluster-analysis&quot;&gt;Silhouettes: A graphical aid to the interpretation and validation of cluster analysis&lt;/h1&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/0377042787901257&quot;&gt;Silhouettes: A graphical aid to the interpretation and validation of cluster analysis&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an old paper, I read this just because it was mentioned by the paper above, and want to know the methodlity.&lt;/p&gt;
+
+&lt;p&gt;This paper introduced &lt;strong&gt;silhouettes&lt;/strong&gt;, actually a score to measure the quality of cluster or instances’s connection to a cluster.&lt;/p&gt;
+
+&lt;p&gt;You can use silhouette score to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Check the cluster’s quality
+    &lt;ul&gt;
+      &lt;li&gt;high silhouette score: clusters quality is good. Tightly combined within cluster, loosely combined between different clusters&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Check if instances should be assigned to the cluster
+    &lt;ul&gt;
+      &lt;li&gt;higher score: more likely, lower score: less likely (probably no where to cluster just an assignment)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Find the proper K for the K-Means clustering
+    &lt;ul&gt;
+      &lt;li&gt;Search K and compare the silhouettes score&lt;/li&gt;
+      &lt;li&gt;Choose the K with largest silhouette score&lt;/li&gt;
+      &lt;li&gt;Find interpretable cluster&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given cluster result C, For each instance i, the silhouettes score is calculated like:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;s(i)=1 - \frac{a(i)}{b(i)}
+0
+\frac{b(i)}{a(i)} - 1&lt;/script&gt;
+
+&lt;p&gt;a(i) is the average distance of i to the other instances within same cluster A ($a(i)=0$ if there is only one instance in the cluster).&lt;/p&gt;
+
+&lt;p&gt;D(i, X) is the average distance of i to the instances in cluster X (X not equals to A).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;b(i)=minimum(D(i, X)), for\ X\in\ C,\ X\neq A&lt;/script&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Flexbox layout</title><link href="http://localhost:4000/reading/2018/12/31/flexbox-layout.html" rel="alternate" type="text/html" title="Flexbox layout" /><published>2018-12-31T21:00:00+09:00</published><updated>2018-12-31T21:00:00+09:00</updated><id>http://localhost:4000/reading/2018/12/31/flexbox-layout</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/31/flexbox-layout.html">&lt;p&gt;Flexbox is the new layout standard&lt;/p&gt;
+
+&lt;p&gt;a box model that’s flexible&lt;/p&gt;
+
+&lt;p&gt;You have a box that acts as a container, and you have child elements within that box.
+Both the container and the child elements are flexible in how they’re rendered on the screen&lt;/p&gt;
+
+&lt;p&gt;column (up/down) or row (left/right)&lt;/p&gt;
+
+&lt;p&gt;React Native stylesheets&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StyleSheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StatusBar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react-native'&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StyleSheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;justifyContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'center'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;alignItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'center'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;backgroundColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ghostwhite'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;justifyContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'center'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;boxText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'darkslategray'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;fontWeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bold'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Paper Backlog</title><link href="http://localhost:4000/reading/2018/12/28/paper-backlog.html" rel="alternate" type="text/html" title="Paper Backlog" /><published>2018-12-28T21:00:00+09:00</published><updated>2018-12-28T21:00:00+09:00</updated><id>http://localhost:4000/reading/2018/12/28/paper-backlog</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/28/paper-backlog.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-science&quot; id=&quot;markdown-toc-data-science&quot;&gt;Data Science&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#causal-inference&quot; id=&quot;markdown-toc-causal-inference&quot;&gt;Causal Inference&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#recsys&quot; id=&quot;markdown-toc-recsys&quot;&gt;Recsys&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nlp&quot; id=&quot;markdown-toc-nlp&quot;&gt;NLP&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#embeddings&quot; id=&quot;markdown-toc-embeddings&quot;&gt;Embeddings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;data-science&quot;&gt;Data Science&lt;/h1&gt;
+
+&lt;h2 id=&quot;causal-inference&quot;&gt;Causal Inference&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Inferrering causal impact using bayesian structural time-series models&lt;/strong&gt; Kay H. Brodersen and Fabian Gallusser and Jim Koehler and Nicolas Remy and Steven L. Scott. Google &lt;a href=&quot;https://ai.google/research/pubs/pub41854&quot;&gt;paper&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;recsys&quot;&gt;Recsys&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;The Netflix Recommender System: Algorithms, Business Value, and Innovation&lt;/strong&gt; Netflix, Inc &lt;a href=&quot;https://dl.acm.org/citation.cfm?id=2843948&quot;&gt;paper&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;nlp&quot;&gt;NLP&lt;/h1&gt;
+
+&lt;h2 id=&quot;embeddings&quot;&gt;Embeddings&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/strong&gt; Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, Jeffrey Dean. NIPS 2013 &lt;a href=&quot;https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf&quot;&gt;paper&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GloVe: Global Vectors for Word Representation&lt;/strong&gt; Jeffrey Pennington, Richard Socher, Christopher D. Manning. EMNLP 2014. &lt;a href=&quot;http://www.aclweb.org/anthology/D14-1162&quot;&gt;paper&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Normalization</title><link href="http://localhost:4000/reading/2018/12/28/normalization.html" rel="alternate" type="text/html" title="Normalization" /><published>2018-12-28T21:00:00+09:00</published><updated>2018-12-28T21:00:00+09:00</updated><id>http://localhost:4000/reading/2018/12/28/normalization</id><content type="html" xml:base="http://localhost:4000/reading/2018/12/28/normalization.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#要約&quot; id=&quot;markdown-toc-要約&quot;&gt;要約&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;要約&quot;&gt;要約&lt;/h1&gt;
+
+&lt;p&gt;配列の正規化（Normalization）・標準化について、まとめます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;なぜ正規化が必要なのか？
+    &lt;ul&gt;
+      &lt;li&gt;Noise、Outlierを排除&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;よく使ってる技術は？
+    &lt;ul&gt;
+      &lt;li&gt;$l1, l2, l_{\infty}$&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">JekyllでGithubPagesを作成手順</title><link href="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html" rel="alternate" type="text/html" title="JekyllでGithubPagesを作成手順" /><published>2018-12-24T21:06:26+09:00</published><updated>2018-12-24T21:06:26+09:00</updated><id>http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/12/24/github-io-jekyll-setup.html">&lt;p&gt;:toc&lt;/p&gt;
 
 &lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
 
@@ -47,6 +564,4 @@ jekyll serve
   &lt;li&gt;githubにPush&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;略、基本的に、Githubの新規Repoの提示を従います。&lt;/p&gt;
-
-&lt;h1 id=&quot;テーマを変更&quot;&gt;テーマを変更&lt;/h1&gt;</content><author><name></name></author><summary type="html">:toc</summary></entry></feed>
+&lt;p&gt;略、基本的に、Githubの新規Repoの提示を従います。&lt;/p&gt;</content><author><name></name></author><summary type="html">:toc</summary></entry></feed>

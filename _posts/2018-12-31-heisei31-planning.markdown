@@ -5,6 +5,9 @@ date:   2018-12-31 21:00:00 +0900
 categories: reading
 ---
 
+* content
+{:toc}
+
 # 要約
 
 平成最後の目標設定です。2019年の年間目標です。
@@ -54,7 +57,7 @@ categories: reading
 
 IT領域の勉強は、やはり、エンジニアと打ち合わせなど使える技能です。
 
-# 目標設定
+
 
 ## 問題解決能力
 
@@ -71,6 +74,13 @@ IT領域の勉強は、やはり、エンジニアと打ち合わせなど使�
 
 - React & React Native
 
+# 目標設定
+
+下記の目標の達成をチャンレンジしたい：
+
+- 読書とノート - 24
+-
+
 # Readings
 
 ## Machine Learning
@@ -79,16 +89,16 @@ IT領域の勉強は、やはり、エンジニアと打ち合わせなど使�
 
 一部の本をすでに読みましたけど、もう一度読む価値があります。
 
-**考える技術・書く技術―問題解決力を伸ばすピラミッド原則** Barbara Minto [Book](https://books.rakuten.co.jp/rb/1044067/)
+**考える技術・書く技術―問題解決力を伸ばすピラミッド原則** Barbara Minto [book](https://books.rakuten.co.jp/rb/1044067/)
 
 **ドキュメント・コミュニケーションの全体観 上下** 中川邦夫
-[Book](https://www.amazon.co.jp/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A8%E4%BD%93%E8%A6%B3-%E4%B8%8A%E5%B7%BB-%E5%8E%9F%E5%89%87%E3%81%A8%E6%89%8B%E9%A0%86-%E4%B8%AD%E5%B7%9D%E9%82%A6%E5%A4%AB/dp/4904256050/ref=pd_bxgy_14_3/355-2321502-2550256?_encoding=UTF8&pd_rd_i=4904256050&pd_rd_r=34087149-0dde-11e9-a192-8ff15e5e6261&pd_rd_w=RK2oQ&pd_rd_wg=3l1AW&pf_rd_p=a4de75e6-d8f7-4a34-bd69-503ea4866e6c&pf_rd_r=GK4ZM7PVVSMFTCH87T7Z&psc=1&refRID=GK4ZM7PVVSMFTCH87T7Z)
+[book](https://www.amazon.co.jp/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A8%E4%BD%93%E8%A6%B3-%E4%B8%8A%E5%B7%BB-%E5%8E%9F%E5%89%87%E3%81%A8%E6%89%8B%E9%A0%86-%E4%B8%AD%E5%B7%9D%E9%82%A6%E5%A4%AB/dp/4904256050/ref=pd_bxgy_14_3/355-2321502-2550256?_encoding=UTF8&pd_rd_i=4904256050&pd_rd_r=34087149-0dde-11e9-a192-8ff15e5e6261&pd_rd_w=RK2oQ&pd_rd_wg=3l1AW&pf_rd_p=a4de75e6-d8f7-4a34-bd69-503ea4866e6c&pf_rd_r=GK4ZM7PVVSMFTCH87T7Z&psc=1&refRID=GK4ZM7PVVSMFTCH87T7Z)
 
-**Learn Better ー 頭の使い方が変わり、学びが深まる6つのステップ** アーリック・ボーザー [Book](https://books.rakuten.co.jp/rk/662d60e3c2613c5f8e653abbca890893/)
+**Learn Better ー 頭の使い方が変わり、学びが深まる6つのステップ** アーリック・ボーザー [book](https://books.rakuten.co.jp/rk/662d60e3c2613c5f8e653abbca890893/)
 
-**ゼロから作るDeep Learning Pythonで学ぶディープラーニングの理論と実装** 斎藤康毅 [Book](https://books.rakuten.co.jp/rb/14424645/)
+**ゼロから作るDeep Learning Pythonで学ぶディープラーニングの理論と実装** 斎藤康毅 [book](https://books.rakuten.co.jp/rb/14424645/)
 
-**ゼロから作るDeep Learning 2 自然言語処理編** 斎藤康毅 [Book](https://books.rakuten.co.jp/rb/15381732/)
+**ゼロから作るDeep Learning 2 自然言語処理編** 斎藤康毅 [book](https://books.rakuten.co.jp/rb/15381732/)
 
 **マイクロサービスアーキテクチャ** [book](https://books.rakuten.co.jp/rb/13770161/?scid=we_lnk_ad_all_non_pla_201803&istCompanyId=304a234b-c871-4407-99f0-29afe4f462b7&istItemId=-mwxattmqp&istBid=t&rmatt=tsid:%7Ccid:1554851268%7Cagid:61907644747%7Ctid:pla-517627851359%7Ccrid:294379747359%7Cnw:g%7Crnd:3196279637305499273%7Cdvc:c%7Cadp:1o1%7Cmt:%7Cloc:1009301&gclid=Cj0KCQiA05zhBRCMARIsACKDWje61RwBkuS2ZwcI2-iMMj0PrkxBtF2imsjn5J57puuF-_pWz3XOBKoaAtY8EALw_wcB)
 
