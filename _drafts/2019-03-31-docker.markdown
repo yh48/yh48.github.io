@@ -1,0 +1,50 @@
+# Concept
+
+**Docker**: a platform to develop, deploy, and run applications with containers.
+
+**Image**:  an ordered collection of root filesystem changes and the corresponding execution parameters for use within a container runtime. An image typically contains a union of layered filesystems stacked on top of each other. An image does not have state and it never changes.
+
+**Container**: a runtime instance of a docker image.
+
+**Compose**: with Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
+
+
+**Dockerfile**:
+
+A Dockerfile is a text document that contains all the commands you would normally execute manually in order to build a Docker image. Docker can build images automatically by reading the instructions from a Dockerfile.
+
+
+
+
+Flexible: Even the most complex applications can be containerized.
+Lightweight: Containers leverage and share the host kernel.
+Interchangeable: You can deploy updates and upgrades on-the-fly.
+Portable: You can build locally, deploy to the cloud, and run anywhere.
+Scalable: You can increase and automatically distribute container replicas.
+Stackable: You can stack services vertically and on-the-fly.
+
+
+Service
+
+In a distributed application, different pieces of the app are called “services”.
+
+Services are really just “containers in production.”
+A service only runs one image, but it codifies the way that image runs—what ports it should use, how many replicas of the container should run so the service has the capacity it needs, and so on.
+
+
+
+
+
+# 概念
+
+Dockerは、仮想化技術コンテナで、アプリケーションを開発、デプロイ、実行する技術です。
+
+利点は
+
+
+フレキシブル
+ポータブル
+
+ContainerとVM：
+
+A container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.

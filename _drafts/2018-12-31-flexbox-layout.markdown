@@ -8,8 +8,18 @@ categories: reading
 * content
 {:toc}
 
-Flexbox is the new layout standard
 
+
+```
+yarn add react-native-elements
+```
+
+
+# Overview
+
+This article describe how flexbox, the new layout standard works in React Native.
+
+## What is flexbox
 
 a box model that's flexible
 
@@ -21,7 +31,7 @@ column (up/down) or row (left/right)
 
 React Native stylesheets
 
-```javascript
+```jsx
 import {Platform, StyleSheet, StatusBar} from 'react-native'
 
 const styles = StyleSheet.create({
@@ -41,4 +51,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 });
+
+export default () => (
+  <View style={styles.container}>
+    <View style={styles.box}>
+      <Text style={styles.boxText}>I'm in a box</Text>
+    </View>
+  </View>
+);
 ```

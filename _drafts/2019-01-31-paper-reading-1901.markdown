@@ -1,0 +1,22 @@
+
+
+# [NIPS] Reading Tea Leaves: How Humans Interpret Topic Models
+
+**Paper**: Reading Tea Leaves: How Humans Interpret Topic Models, Chang, [Paper](http://users.umiacs.umd.edu/~jbg/docs/nips2009-rtl.pdf)
+
+
+# Automatic Evaluation of Topic Coherence
+
+**Paper**: Automatic Evaluation of Topic Coherence, Newman, [Paper](http://www.aclweb.org/anthology/N10-1012)
+
+
+# Inferrering causal impact using bayesian structural time-series models
+
+This paper is published by Google. Introduced a method of causal inferance method, and a toolbox (but in R).
+
+It is a good improvement of some old methods like DID.
+
+
+# Exploring the Space of Topic Coherence Measures
+
+**Paper**: Exploring the Space of Topic Coherence Measures, Röder, [Paper](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf)
