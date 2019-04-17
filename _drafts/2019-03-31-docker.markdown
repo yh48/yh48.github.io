@@ -8,11 +8,9 @@
 
 **Compose**: with Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
 
-
 **Dockerfile**:
 
 A Dockerfile is a text document that contains all the commands you would normally execute manually in order to build a Docker image. Docker can build images automatically by reading the instructions from a Dockerfile.
-
 
 
 

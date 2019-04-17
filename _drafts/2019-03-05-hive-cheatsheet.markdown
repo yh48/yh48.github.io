@@ -57,3 +57,28 @@ CREATE EXTERNAL TABLE my_schema.my_table (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
 LOCATION 's3://my_bucket/my_path' ;
 ```
+
+
+
+**Generate Data range**
+
+Generate the data of every minute in 2019-04-01:
+
+```sql
+SELECT
+  date_format(t2.minute,'%Y-%m-%d %H:%i') minute
+FROM
+ (
+  VALUES (
+    sequence(FROM_ISO8601_DATE('2019-04-01')
+    ,FROM_ISO8601_DATE('2019-04-02')
+    ,INTERVAL '1' minute) )
+) AS t1(date_array) CROSS JOIN UNNEST (t1.date_array) AS t2(minute)
+ORDER BY minute
+```
+
+**Manually add a partition from a physical location**
+
+```sql
+ALTER TABLE testdb.table1 ADD PARTITION (dept='dept1') LOCATION '/path/to/dataFile/dept1';
+```
